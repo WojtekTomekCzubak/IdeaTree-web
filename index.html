@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/IdeaTree-web/favicon.svg" />
+    <link rel="apple-touch-icon" href="/IdeaTree-web/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="IdeaTree — lokalna baza pomysłów w strukturze drzewa i grafu połączeń." />
+    <meta name="theme-color" content="#B3261E" />
+    <!-- iPhone: po dodaniu do ekranu początkowego pełny ekran, treść pod przezroczystym paskiem stanu
+         (górny pasek aplikacji w kolorze kategorii odsuwa się o env(safe-area-inset-top)). -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="IdeaTree" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>IdeaTree</title>
+    <script>
+      // Ustaw motyw przed pierwszym renderem, aby uniknąć migotania.
+      (function () {
+        try {
+          var t = localStorage.getItem('ideatree-theme') || 'light';
+          var dark = t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+          document.documentElement.classList.add('cat-none');
+        } catch (e) {}
+      })();
+    </script>
+    <script type="module" crossorigin src="/IdeaTree-web/assets/index-DhBBQoGf.js"></script>
+    <link rel="modulepreload" crossorigin href="/IdeaTree-web/assets/rolldown-runtime-hePW80VL.js">
+    <link rel="stylesheet" crossorigin href="/IdeaTree-web/assets/index-C9ytGFIb.css">
+  <link rel="manifest" href="/IdeaTree-web/manifest.webmanifest"></head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

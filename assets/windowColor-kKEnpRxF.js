@@ -1,0 +1,1 @@
+import{i as e}from"./dist-B6RqnSw3.js";var t=e(`WindowColor`);function n(e){t.setBackgroundColor({color:e}).catch(()=>{})}export{n as setWindowColor};

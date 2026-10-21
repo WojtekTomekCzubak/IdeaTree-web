@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <title>IdeaTree — instrukcja: klucz API</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 18mm 16mm 18mm;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Inter, 'Segoe UI', sans-serif;
+        color: #1f1f1f;
+        font-size: 11pt;
+        line-height: 1.55;
+        margin: 0;
+      }
+      header {
+        background: #1f1f1f;
+        color: #fff;
+        border-radius: 14px;
+        padding: 18px 22px;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      header svg {
+        flex: none;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 19pt;
+        letter-spacing: -0.02em;
+      }
+      header p {
+        margin: 2px 0 0;
+        opacity: 0.75;
+        font-size: 10pt;
+      }
+      .note {
+        margin: 16px 0 6px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        background: #f7f7f5;
+        border: 1px solid #e4e4e0;
+        font-size: 10pt;
+        color: #3a3a37;
+      }
+      h2 {
+        font-size: 13.5pt;
+        margin: 22px 0 8px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        letter-spacing: -0.01em;
+      }
+      h2 i {
+        width: 11px;
+        height: 11px;
+        border-radius: 3px;
+        display: inline-block;
+      }
+      ol {
+        margin: 0;
+        padding-left: 22px;
+      }
+      li {
+        margin: 5px 0;
+      }
+      code,
+      .k {
+        font-family: 'JetBrains Mono', Consolas, monospace;
+        font-size: 9.5pt;
+        background: #f1f1ee;
+        border-radius: 5px;
+        padding: 1px 5px;
+      }
+      .card {
+        break-inside: avoid;
+        border: 1px solid #e4e4e0;
+        border-radius: 14px;
+        padding: 4px 18px 14px;
+        margin-top: 14px;
+      }
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+      footer {
+        margin-top: 24px;
+        font-size: 9pt;
+        color: #76766f;
+        border-top: 1px solid #e4e4e0;
+        padding-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="9" height="9" rx="3" fill="#fff" />
+        <rect x="13" y="13" width="9" height="9" rx="3" fill="#fff" opacity=".55" />
+        <rect x="2" y="13" width="9" height="9" rx="3" fill="#fff" opacity=".8" />
+        <path d="M11 6.5h4.5a2 2 0 0 1 2 2V13" stroke="#fff" stroke-width="1.8" stroke-linecap="round" />
+      </svg>
+      <div>
+        <h1>Klucz API do funkcji AI — instrukcja krok po kroku</h1>
+        <p>IdeaTree · jak zdobyć klucz OpenAI lub Anthropic i dodać go w aplikacji</p>
+      </div>
+    </header>
+
+    <div class="note">
+      Funkcje AI — rozwijanie pomysłów i sugestie zadań TODO — pojawią się w kolejnej wersji IdeaTree. Klucz możesz
+      przygotować już teraz. Jest zapisywany <b>tylko na Twoim urządzeniu</b> (komputer, telefon lub przeglądarka),
+      nie trafia do kopii zapasowych JSON i nie jest nigdzie wysyłany.
+    </div>
+
+    <div class="card">
+      <h2><i style="background: #0b5d3b"></i>OpenAI (modele GPT)</h2>
+      <ol>
+        <li>Wejdź na <b>platform.openai.com</b> i zaloguj się (albo załóż konto).</li>
+        <li>
+          W ustawieniach konta otwórz <b>Billing</b> i dodaj środki. API jest rozliczane za zużycie — osobno od
+          subskrypcji ChatGPT.
+        </li>
+        <li>Przejdź do sekcji <b>API keys</b> i kliknij <span class="k">Create new secret key</span>.</li>
+        <li>
+          Nadaj nazwę, np. <span class="k">IdeaTree</span>, utwórz klucz i od razu go skopiuj (zaczyna się od
+          <code>sk-</code>). Po zamknięciu okna nie zobaczysz go ponownie.
+        </li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2><i style="background: #b3261e"></i>Anthropic (modele Claude)</h2>
+      <ol>
+        <li>Wejdź do konsoli Anthropic: <b>console.anthropic.com</b> i zaloguj się.</li>
+        <li>W <b>Settings → Billing</b> dodaj środki. API jest rozliczane za zużycie — osobno od planów Claude.ai.</li>
+        <li>Otwórz <b>Settings → API Keys</b> i kliknij <span class="k">Create Key</span>.</li>
+        <li>Nadaj nazwę i skopiuj klucz (zaczyna się od <code>sk-ant-</code>).</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2><i style="background: #3730a3"></i>Dodanie klucza w IdeaTree</h2>
+      <ol>
+        <li>
+          Kliknij <b>„⋯”</b> na górnym pasku i wybierz <b>Ustawienia lokalne</b> — albo w notatce kliknij
+          <b>AI · Wkrótce</b>, a potem <b>Przejdź do Ustawień</b>.
+        </li>
+        <li>W sekcji <b>Klucz API</b> wybierz dostawcę: OpenAI albo Anthropic.</li>
+        <li>Wklej klucz w pole i kliknij <b>Zapisz klucz</b>. Gotowe — funkcje AI użyją go, gdy pojawią się w aplikacji.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2><i style="background: #1f1f1f"></i>Bezpieczeństwo klucza</h2>
+      <ul>
+        <li>Traktuj klucz jak hasło — nie wysyłaj go nikomu i nie wklejaj na stronach, którym nie ufasz.</li>
+        <li>W panelu dostawcy ustaw miesięczny limit wydatków.</li>
+        <li>
+          Klucz jest przechowywany w danych aplikacji bez szyfrowania — nie zapisuj go na urządzeniu, z którego korzystają
+          inne osoby.
+        </li>
+        <li>
+          Jeśli klucz wycieknie, usuń go w panelu dostawcy, utwórz nowy, a w IdeaTree kliknij <b>Usuń klucz</b> i zapisz
+          nowy.
+        </li>
+      </ul>
+    </div>
+
+    <footer>IdeaTree — lokalna baza pomysłów. Ten dokument jest dołączony do aplikacji i działa offline.</footer>
+  </body>
+</html>
